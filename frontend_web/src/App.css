@@ -1,104 +1,233 @@
-/* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --primary: #1a202c;
+  --secondary: #4a5568;
+  --accent: #2b6cb0;
+  --bg: #f9fafb;
+  --text: #252a34;
+  --white: #ffffff;
+  --gray: #f3f4f6;
+  --border: #e2e8f0;
+}
+body,
+.main-wrapper {
+  background: var(--bg);
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: var(--primary);
 }
 
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 2rem;
+  box-shadow: 0 2px 8px rgba(26,32,44,0.04);
+  z-index: 10;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--primary);
+  letter-spacing: 0.01em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar__links {
+  display: flex;
+  gap: 2.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  padding: 0 0.5rem;
+}
+.nav-link:hover, .nav-link:focus {
+  color: var(--secondary);
+  outline: none;
 }
 
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2.8rem 1rem 2.2rem 1rem;
+  background: var(--white);
+  min-height: 70vh;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1.2rem;
+  width: 100%;
+  max-width: 540px;
+}
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 32px rgba(43,108,176,0.11);
+  border: 2px solid var(--accent);
+  background: var(--bg);
+}
+
+.video-placeholder {
+  width: 370px;
+  max-width: 90vw;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--gray), var(--bg), var(--gray));
+  margin: 0 auto 0;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
+  border: 2px dashed var(--accent);
   position: relative;
+  min-height: 200px;
+  margin-top: 0.6rem;
 }
-
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.theme-toggle {
+.play-button {
+  font-size: 2.8rem;
+  color: var(--accent);
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-60%);
+  background: rgba(255,255,255,0.90);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(43,108,176,0.24);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: none;
+  border: 1.5px solid var(--accent);
+}
+.video-text {
+  width: 100%;
+  text-align: center;
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 5.2rem;
+  letter-spacing: 0.045em;
+}
+
+.section {
+  margin: 0 auto;
+  padding: 3rem 1.3rem 2.1rem 1.3rem;
+  max-width: 700px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section h2 {
+  color: var(--accent);
+  margin-bottom: 0.45em;
+  letter-spacing: 0.02em;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.section p {
+  margin: 0 0 0.8em 0;
+  font-size: 1.08rem;
+  color: var(--secondary);
+  line-height: 1.78;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+.contact-input {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  resize: none;
+}
+.contact-input:disabled {
+  background: #eee;
+  color: #aaa;
+  font-style: italic;
+}
+
+.contact-submit {
+  background: var(--accent);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 0;
+  cursor: not-allowed;
+  opacity: 0.75;
+  margin-top: 0.4rem;
 }
 
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.footer {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+  padding: 1.6rem 0 1.2rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  margin-top: 2rem;
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 1rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .section {
+    max-width: 98vw;
+    padding: 2.3rem 0.7rem 1.5rem 0.7rem;
+  }
+  .hero-section {
+    padding: 2.1rem 0.2rem 1.4rem 0.2rem;
   }
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
+@media (max-width: 700px) {
+  .navbar__links {
+    gap: 1.2rem;
+  }
+  .hero-image-wrap {
+    padding-bottom: 0.8rem;
+    max-width: 92vw;
+  }
+  .video-placeholder {
+    width: 98vw;
+    min-width: 0;
+  }
+  .footer {
+    font-size: 0.96rem;
   }
 }
